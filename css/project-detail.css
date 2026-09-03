@@ -1,0 +1,255 @@
+/* Project detail page */
+
+/* --------------------------------------------------
+   Project page banner
+-------------------------------------------------- */
+
+.project-detail-body .page-banner-inner {
+  min-height: 190px;
+  padding-block: 48px 30px;
+}
+
+.project-detail-body .page-banner-title {
+  max-width: 900px;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+
+
+/* --------------------------------------------------
+   Main project overview
+-------------------------------------------------- */
+
+.project-detail-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 64px;
+}
+
+.project-detail-content {
+  max-width: 560px;
+}
+
+
+/* --------------------------------------------------
+   Project title
+-------------------------------------------------- */
+
+.project-detail-content h1 {
+  margin: 0 0 14px;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.8vw, 1.9rem);
+  line-height: 1.15;
+}
+
+
+/* --------------------------------------------------
+   Project date / metadata
+-------------------------------------------------- */
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+
+  color: var(--color-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.project-meta svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+
+  color: var(--color-accent);
+}
+
+
+/* --------------------------------------------------
+   Project description
+-------------------------------------------------- */
+
+.project-detail-content p {
+  margin: 0 0 16px;
+
+  color: var(--color-muted);
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* --------------------------------------------------
+   Project actions
+-------------------------------------------------- */
+
+.project-detail-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+
+  width: 100%;
+  margin-top: 22px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+
+/* --------------------------------------------------
+   Visit dashboard / website button
+-------------------------------------------------- */
+
+.project-visit-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: fit-content;
+  min-height: 42px;
+  margin: 0;
+
+  padding: 10px 16px;
+
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+
+  color: var(--color-accent);
+  background: transparent;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.project-visit-link svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.project-visit-link:hover {
+  color: #ffffff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+
+  transform: translateY(-1px);
+}
+
+.project-visit-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+
+/* --------------------------------------------------
+   Project screenshot
+-------------------------------------------------- */
+
+.project-detail-image {
+  overflow: hidden;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.project-detail-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+
+/* --------------------------------------------------
+   Back to projects
+-------------------------------------------------- */
+
+.project-back-link {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+  min-height: 42px;
+  margin: 0;
+
+  color: var(--color-accent);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+
+  text-decoration: none;
+}
+
+.project-back-link:hover,
+.project-back-link:focus-visible {
+  color: var(--color-accent-strong);
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+
+@media (max-width: 780px) {
+  .project-detail-intro {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .project-detail-content {
+    max-width: none;
+  }
+
+  .project-detail-image {
+    order: -1;
+  }
+
+  .project-detail-content h1 {
+    font-size: clamp(1.7rem, 7vw, 2rem);
+  }
+
+  .project-detail-actions {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .project-visit-link {
+    justify-self: start;
+  }
+}
+
+
+/* --------------------------------------------------
+   Reduced motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-visit-link {
+    transition: none;
+  }
+
+  .project-visit-link:hover {
+    transform: none;
+  }
+}

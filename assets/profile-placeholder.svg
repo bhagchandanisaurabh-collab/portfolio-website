@@ -1,0 +1,13 @@
+<svg width="900" height="1080" viewBox="0 0 900 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Profile placeholder</title>
+  <desc id="desc">A simple monogram placeholder image for Saurabh Bhagchandani.</desc>
+  <rect width="900" height="1080" fill="#FFFFFF"/>
+  <rect x="72" y="72" width="756" height="936" rx="28" fill="#FFFFFF" stroke="#D9DED6" stroke-width="4"/>
+  <path d="M164 234H736" stroke="#D9DED6" stroke-width="4"/>
+  <path d="M164 846H736" stroke="#D9DED6" stroke-width="4"/>
+  <circle cx="450" cy="458" r="188" fill="#245B52"/>
+  <circle cx="450" cy="458" r="116" fill="#F6F7F4"/>
+  <path d="M322 724H578" stroke="#B86B3C" stroke-width="24" stroke-linecap="round"/>
+  <path d="M374 774H526" stroke="#245B52" stroke-width="18" stroke-linecap="round"/>
+  <text x="450" y="487" text-anchor="middle" fill="#171B1A" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="700">SB</text>
+</svg>
