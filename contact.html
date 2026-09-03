@@ -25,11 +25,18 @@
 
           <form
             class="contact-form"
-            action="mailto:your.email@example.com"
-            method="post"
-            enctype="text/plain"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             aria-describedby="contact-description"
           >
+            <input type="hidden" name="form-name" value="contact">
+            <p hidden>
+              <label for="contact-bot-field">Leave this field empty</label>
+              <input id="contact-bot-field" name="bot-field" type="text" autocomplete="off" tabindex="-1">
+            </p>
+
             <div class="contact-field">
               <label class="contact-label" for="contact-name">Your Name</label>
               <input
