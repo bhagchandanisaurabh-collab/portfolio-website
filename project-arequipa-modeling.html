@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Urban Growth Modeling in Arequipa | Saurabh Bhagchandani</title>
+
+    <meta
+      name="description"
+      content="Spatial logistic regression and urban-growth simulation project for Arequipa, Peru."
+    >
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+
+    <script src="js/site-components.js" defer></script>
+  </head>
+
+  <body class="project-detail-body arequipa-model-project">
+    <site-header></site-header>
+
+    <page-banner
+      page="Urban Growth Modeling in Arequipa"
+      parent="Projects"
+      parent-href="work.html">
+    </page-banner>
+
+    <main id="main-content" class="container page project-detail-page">
+      <section class="project-detail-intro model-intro">
+        <div class="project-detail-content">
+          <h1>Urban Growth Modeling in Arequipa</h1>
+
+          <div class="project-meta">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M16 3v4M8 3v4M3 10h18"></path>
+            </svg>
+            <span>March 2025</span>
+          </div>
+
+          <p>
+            This project explored how spatial factors can be used to model and
+            simulate urban expansion in Arequipa, Peru. A spatial logistic
+            regression approach was used to estimate where urban development
+            was most likely to occur.
+          </p>
+
+          <p>
+            The model combined environmental conditions, accessibility,
+            existing development and urban-form variables, then compared
+            statistically informed growth with a random simulation and
+            real-world settlement data.
+          </p>
+
+          <div class="arequipa-scroll-cue">
+            <a
+              class="arequipa-scroll-button"
+              href="#model-story"
+              aria-label="Continue to the urban growth modeling project"
+            >
+              <span aria-hidden="true">&darr;</span>
+            </a>
+            <span>Explore the project</span>
+          </div>
+        </div>
+
+        <figure class="model-figure model-intro-figure">
+          <img
+            src="assets/layout 3.png"
+            alt="Combined urban growth map of Arequipa comparing modeled and observed urban growth patterns"
+          >
+          <figcaption>Combined Urban Growth Map</figcaption>
+        </figure>
+      </section>
+
+      <section id="model-story" class="model-section model-overview">
+        <header class="model-section-heading">
+          <span class="model-section-label">Project overview</span>
+          <h2>Can spatial factors help explain where a city grows?</h2>
+
+          <p>
+            Urban growth is shaped by more than available land. Accessibility,
+            terrain, existing development and proximity to established urban
+            areas can all influence where expansion occurs. This project tested
+            how these spatial relationships could be incorporated into an urban
+            growth model for Arequipa.
+          </p>
+        </header>
+
+        <div class="model-fact-grid">
+          <article class="model-fact-card">
+            <span class="model-card-index">01</span>
+            <h3>Spatial Logistic Regression</h3>
+            <p>Growth probability modeled using spatial drivers.</p>
+          </article>
+
+          <article class="model-fact-card">
+            <span class="model-card-index">02</span>
+            <h3>Two simulations</h3>
+            <p>Statistically informed growth compared with random allocation.</p>
+          </article>
+
+          <article class="model-fact-card">
+            <span class="model-card-index">03</span>
+            <h3>Real-world validation</h3>
+            <p>Outputs compared against GHSL 2018 and observed building footprints.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="model-section model-inputs">
+        <header class="model-section-heading">
+          <span class="model-section-label">Model inputs</span>
+          <h2>What influences urban growth?</h2>
+
+          <p>
+            A set of environmental, accessibility and existing-development
+            variables was prepared to represent factors that could influence
+            the location of urban expansion.
+          </p>
+        </header>
+
+        <div class="model-driver-grid">
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 18h18M5 15l4-4 3 3 6-7 2 2"></path>
+              </svg>
+            </span>
+
+            <h3>Slope</h3>
+            <p>Terrain steepness</p>
+          </article>
+
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m3 19 6-10 4 6 2-3 6 7H3z"></path>
+                <path d="M9 9 11 5l2 4"></path>
+              </svg>
+            </span>
+
+            <h3>Elevation</h3>
+            <p>Height above sea level</p>
+          </article>
+
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="6" cy="18" r="2"></circle>
+                <circle cx="18" cy="6" r="2"></circle>
+                <path d="M7.5 16.5 16.5 7.5M10 17h5a3 3 0 0 0 3-3v-3"></path>
+              </svg>
+            </span>
+
+            <h3>Road accessibility</h3>
+            <p>Distance to secondary and tertiary roads</p>
+          </article>
+
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 3 5 21M16 3l3 18M10 7h4M9 12h6M8 17h8"></path>
+              </svg>
+            </span>
+
+            <h3>Motorway accessibility</h3>
+            <p>Distance to major transport corridors</p>
+          </article>
+
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="10" width="7" height="10" rx="1"></rect>
+                <rect x="14" y="5" width="7" height="15" rx="1"></rect>
+                <path d="M6 14h1M6 17h1M17 9h1M17 12h1M17 15h1"></path>
+              </svg>
+            </span>
+
+            <h3>Existing built-up neighbours</h3>
+            <p>Proximity to areas already developed</p>
+          </article>
+
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M9 10h.01M15 10h.01"></path>
+              </svg>
+            </span>
+
+            <h3>Historic centre</h3>
+            <p>Distance from Arequipa&rsquo;s established urban core</p>
+          </article>
+
+          <article class="model-driver-card">
+            <span class="model-driver-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M12 2v2M12 10v2M7 7H5M19 7h-2M7.8 2.8l1.4 1.4M16.2 2.8l-1.4 1.4M3 17h18M5 21h14"></path>
+              </svg>
+            </span>
+
+            <h3>Non-vegetated land</h3>
+            <p>Existing land-surface condition</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="model-section model-variable-layout">
+        <div class="model-variable-copy">
+          <span class="model-section-label">Variable selection</span>
+
+          <h2>Removing noise before modeling growth</h2>
+
+          <p>
+            Not every candidate variable was retained. The model preparation
+            included checks for multicollinearity and statistical significance
+            so that strongly redundant or insignificant predictors did not
+            distort the final regression.
+          </p>
+
+          <ol class="model-workflow">
+            <li>Initial spatial variables</li>
+            <li>Check multicollinearity</li>
+            <li>Remove high-VIF predictors</li>
+            <li>Run logistic regression</li>
+            <li>Check statistical significance</li>
+            <li>Final predictor set</li>
+          </ol>
+        </div>
+
+        <figure class="model-figure model-variable-figure">
+          <img
+            src="assets/LR_Table.png"
+            alt="Final logistic regression results used to identify statistically meaningful urban growth predictors"
+            loading="lazy"
+          >
+          <figcaption>
+            Final logistic regression and variable-selection results
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="model-section model-insights">
+        <header class="model-section-heading">
+          <span class="model-section-label">Model insights</span>
+          <h2>Reading the spatial signals</h2>
+        </header>
+
+        <div class="model-insight-grid">
+          <article class="model-insight-card">
+            <h3>Existing built-up neighbours</h3>
+            <strong>2.816&times; odds ratio</strong>
+
+            <p>
+              Growth was substantially more likely close to areas that were
+              already developed.
+            </p>
+          </article>
+
+          <article class="model-insight-card">
+            <h3>Distance to roads</h3>
+            <strong>0.174 odds ratio</strong>
+
+            <p>
+              Increasing distance from roads substantially reduced the
+              probability of urbanisation.
+            </p>
+          </article>
+
+          <article class="model-insight-card">
+            <h3>Slope</h3>
+            <strong>0.889 odds ratio</strong>
+
+            <p>
+              Steeper terrain was associated with a lower likelihood of
+              development.
+            </p>
+          </article>
+
+          <article class="model-insight-card">
+            <h3>Historic centre</h3>
+            <strong>0.908 odds ratio</strong>
+
+            <p>
+              Areas closer to the established urban centre were more likely to
+              urbanise.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="model-section model-performance">
+        <div class="model-performance-copy">
+          <span class="model-section-label">Model performance</span>
+
+          <h2>How much of the growth pattern could the model explain?</h2>
+
+          <p>
+            The model achieved a Nagelkerke R&sup2; of 0.518, indicating that
+            the selected spatial variables explained a meaningful share of
+            variation in the observed urban-growth pattern.
+          </p>
+        </div>
+
+        <div class="model-performance-values">
+          <div class="model-primary-value">
+            <strong>51.8%</strong>
+            <span>Nagelkerke R&sup2;</span>
+          </div>
+
+          <div class="model-secondary-value">
+            <span>Cox &amp; Snell R&sup2;</span>
+            <strong>0.126</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="model-section model-simulation">
+        <header class="model-section-heading">
+          <span class="model-section-label">Urban growth simulation</span>
+
+          <h2>From probability to simulated urban expansion</h2>
+
+          <p>
+            Two allocation approaches were compared. The spatial logistic
+            regression simulation used the estimated relationships between
+            urban growth and its spatial drivers, while the random simulation
+            allocated growth without considering those relationships.
+          </p>
+        </header>
+
+        <figure class="model-figure model-simulation-figure">
+          <img
+            src="assets/mixed_map.png"
+            alt="Comparison of World Settlement Footprint, spatial logistic regression simulation and random urban growth simulation in Arequipa"
+            loading="lazy"
+          >
+          <figcaption>
+            WSF, SLR simulation and random simulation
+          </figcaption>
+        </figure>
+
+        <div class="model-comparison-grid">
+          <article class="model-comparison-card">
+            <h3>Spatial model</h3>
+
+            <p>
+              Uses accessibility, terrain, existing development and other
+              spatial relationships when allocating growth.
+            </p>
+          </article>
+
+          <article class="model-comparison-card">
+            <h3>Random model</h3>
+
+            <p>
+              Allocates growth without incorporating the spatial influence of
+              those predictors.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="model-section model-validation-metrics">
+        <header class="model-section-heading">
+          <span class="model-section-label">Model comparison</span>
+
+          <h2>Did spatial modeling improve the simulation?</h2>
+        </header>
+
+        <div class="model-metric-grid">
+          <article class="model-metric-card">
+            <h3>Overall Accuracy</h3>
+
+            <dl>
+              <div>
+                <dt>SLR</dt>
+                <dd>95.43%</dd>
+              </div>
+
+              <div>
+                <dt>Random</dt>
+                <dd>95.29%</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="model-metric-card">
+            <h3>Urban-growth Precision</h3>
+
+            <dl>
+              <div>
+                <dt>SLR</dt>
+                <dd>7.56%</dd>
+              </div>
+
+              <div>
+                <dt>Random</dt>
+                <dd>1.96%</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="model-metric-card">
+            <h3>Urban-growth Recall</h3>
+
+            <dl>
+              <div>
+                <dt>SLR</dt>
+                <dd>5.19%</dd>
+              </div>
+
+              <div>
+                <dt>Random</dt>
+                <dd>1.16%</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <p class="model-section-note">
+          Overall accuracy was high for both approaches because most cells
+          remained non-built-up. Precision and recall provide a more useful
+          distinction for evaluating how effectively the simulations captured
+          actual urban growth.
+        </p>
+      </section>
+
+      <section class="model-section model-landscape">
+        <header class="model-section-heading">
+          <span class="model-section-label">Landscape metrics</span>
+
+          <h2>Comparing the structure of simulated growth</h2>
+
+          <p>
+            Landscape metrics were used as an additional way to compare the
+            spatial structure produced by the simulations with GHSL 2018.
+          </p>
+        </header>
+
+        <div class="model-landscape-table-wrap">
+          <table class="model-landscape-table">
+            <thead>
+              <tr>
+                <th scope="col">Metric</th>
+                <th scope="col">SLR</th>
+                <th scope="col">Random</th>
+                <th scope="col">GHSL 2018</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row">Number of patches</th>
+                <td>1,769</td>
+                <td>11,031</td>
+                <td>5,123</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Mean patch area</th>
+                <td>48,138.10</td>
+                <td>7,719.73</td>
+                <td>10,603.53</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Mean patch shape ratio</th>
+                <td>3.116</td>
+                <td>3.882</td>
+                <td>3.422</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="model-section model-real-validation">
+        <header class="model-section-heading">
+          <span class="model-section-label">Real-world validation</span>
+
+          <h2>Checking the simulations against the real city</h2>
+
+          <p>
+            The simulated growth areas were also visually compared with GHSL
+            2018 and building footprints visible in satellite imagery. This
+            provided a direct check of whether predicted growth corresponded
+            with areas where urban development actually existed.
+          </p>
+        </header>
+
+        <div class="model-validation-gallery">
+          <figure class="model-validation-figure">
+            <img
+              src="assets/validation.png"
+              alt="Validation example comparing simulated urban growth, GHSL 2018 and observed building footprints in Arequipa"
+              loading="lazy"
+            >
+            <figcaption>Validation example 01</figcaption>
+          </figure>
+
+          <figure class="model-validation-figure">
+            <img
+              src="assets/validation 2.png"
+              alt="Second validation example comparing simulated urban growth, GHSL 2018 and observed building footprints in Arequipa"
+              loading="lazy"
+            >
+            <figcaption>Validation example 02</figcaption>
+          </figure>
+
+          <figure class="model-validation-figure">
+            <img
+              src="assets/validation 3.png"
+              alt="Third validation example comparing simulated urban growth, GHSL 2018 and observed building footprints in Arequipa"
+              loading="lazy"
+            >
+            <figcaption>Validation example 03</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="model-section model-takeaway">
+        <span class="model-section-label">Key takeaway</span>
+
+        <h2>Spatial context matters when modeling urban expansion.</h2>
+
+        <p>
+          The project demonstrated how urban-growth simulation can move beyond
+          random allocation by incorporating accessibility, terrain and
+          existing development patterns. Although the model remained imperfect,
+          the spatially informed simulation produced substantially stronger
+          urban-growth precision and recall than the random approach and
+          provided an interpretable framework for understanding where
+          development was more likely to occur.
+        </p>
+      </section>
+
+      <div class="model-bottom-navigation">
+        <a class="project-back-link" href="work.html">
+          &larr; Back to projects
+        </a>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

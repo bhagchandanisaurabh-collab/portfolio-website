@@ -100,6 +100,10 @@
   border-top: 1px solid var(--color-line);
 }
 
+.project-detail-actions--suhi {
+  grid-template-columns: 1fr auto auto;
+}
+
 
 /* --------------------------------------------------
    Visit dashboard / website button
@@ -211,6 +215,17 @@
    Responsive
 -------------------------------------------------- */
 
+@media (max-width: 960px) {
+  .project-detail-actions--suhi {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .project-detail-actions--suhi .project-visit-link {
+    justify-self: start;
+  }
+}
+
 @media (max-width: 780px) {
   .project-detail-intro {
     grid-template-columns: 1fr;
@@ -252,4 +267,2646 @@
   .project-visit-link:hover {
     transform: none;
   }
+}
+
+/* =========================================================
+   AREQUIPA CASE STUDY
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   TYPOGRAPHY RULE
+
+   Nothing on this page should exceed the project-title size.
+   --------------------------------------------------------- */
+
+.arequipa-project .project-detail-content h1 {
+  font-size: clamp(1.7rem, 2.3vw, 1.95rem);
+}
+
+.arequipa-project h2 {
+  font-size: clamp(1.4rem, 2vw, 1.72rem);
+}
+
+.arequipa-project h3 {
+  font-size: clamp(1.15rem, 1.6vw, 1.38rem);
+}
+
+
+/* ---------------------------------------------------------
+   Intro
+   --------------------------------------------------------- */
+
+.arequipa-intro {
+  margin-bottom: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   Scroll cue
+   --------------------------------------------------------- */
+
+.arequipa-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  gap: 8px;
+
+  margin-top: 18px;
+
+  text-align: center;
+}
+
+.arequipa-scroll-button {
+  display: grid;
+
+  width: 42px;
+  height: 42px;
+
+  place-items: center;
+
+  border: 1px solid var(--color-accent-strong);
+  border-radius: 50%;
+
+  color: var(--color-accent-strong);
+  text-decoration: none;
+
+  background: var(--color-surface);
+
+  animation: arequipa-scroll-pulse 2.1s ease-in-out infinite;
+}
+
+.arequipa-scroll-button span {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.arequipa-scroll-button:hover {
+  background: rgba(36, 91, 82, 0.07);
+}
+
+.arequipa-scroll-cue > span {
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+@keyframes arequipa-scroll-pulse {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgba(36, 91, 82, 0.16);
+  }
+
+  50% {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 8px rgba(36, 91, 82, 0);
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Shared sections
+   --------------------------------------------------------- */
+
+.arequipa-section {
+  padding-block: 54px;
+}
+
+.arequipa-section-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--color-accent-strong);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+}
+
+.arequipa-project h2,
+.arequipa-project h3 {
+  margin-top: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.16;
+}
+
+.arequipa-project h2 {
+  margin-bottom: 14px;
+}
+
+.arequipa-project h3 {
+  margin-bottom: 10px;
+}
+
+.arequipa-section p,
+.arequipa-metric-story p,
+.arequipa-takeaway p {
+  color: var(--color-muted);
+
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   Opening story
+   --------------------------------------------------------- */
+
+.arequipa-opening {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(430px, 1.1fr);
+
+  gap: clamp(46px, 7vw, 90px);
+
+  align-items: start;
+}
+
+.arequipa-opening-copy {
+  max-width: 520px;
+}
+
+.arequipa-opening-copy p {
+  margin: 0 0 15px;
+}
+
+
+/* ---------------------------------------------------------
+   Number story
+   --------------------------------------------------------- */
+
+.arequipa-number-story {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.arequipa-number-story article {
+  position: relative;
+
+  padding: 24px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-number-story article:first-child {
+  grid-column: span 2;
+}
+
+.arequipa-stat-index {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: var(--color-accent-strong);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.arequipa-stat-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+.arequipa-number-story strong {
+  display: flex;
+
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  gap: 8px;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.1;
+}
+
+.arequipa-number-story strong small {
+  color: var(--color-muted);
+
+  font-family: inherit;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.arequipa-number-story strong > span {
+  color: var(--color-accent-strong);
+}
+
+.arequipa-number-story p {
+  margin: 8px 0 0;
+
+  font-size: 0.8rem;
+}
+
+
+/* ---------------------------------------------------------
+   Growth story
+   --------------------------------------------------------- */
+
+.arequipa-growth-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.78fr)
+    minmax(380px, 0.72fr);
+
+  gap: clamp(46px, 7vw, 88px);
+
+  align-items: center;
+}
+
+.arequipa-growth-copy {
+  max-width: 540px;
+}
+
+.arequipa-growth-copy > p {
+  margin: 0 0 14px;
+}
+
+.arequipa-growth-map {
+  width: min(100%, 520px);
+
+  margin: 0;
+  justify-self: end;
+
+  padding: 16px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-growth-map img {
+  display: block;
+
+  width: 100%;
+  max-height: 580px;
+
+  object-fit: contain;
+}
+
+.arequipa-growth-map figcaption {
+  margin-top: 10px;
+
+  color: var(--color-muted);
+
+  font-size: 0.76rem;
+}
+
+
+/* Five observation years */
+
+.arequipa-growth-years {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 7px;
+
+  margin-top: 28px;
+}
+
+.arequipa-growth-years div {
+  padding: 12px 8px;
+
+  border-radius: 8px;
+
+  background: rgba(36, 91, 82, 0.05);
+}
+
+.arequipa-growth-years strong,
+.arequipa-growth-years span {
+  display: block;
+}
+
+.arequipa-growth-years strong {
+  margin-bottom: 3px;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+}
+
+.arequipa-growth-years span {
+  color: var(--color-muted);
+
+  font-size: 0.7rem;
+}
+
+
+/* ---------------------------------------------------------
+   Grid methodology
+   --------------------------------------------------------- */
+
+.arequipa-method-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.82fr)
+    minmax(400px, 1fr);
+
+  gap: clamp(44px, 7vw, 84px);
+
+  align-items: center;
+}
+
+.arequipa-method-copy {
+  max-width: 500px;
+}
+
+.arequipa-method-copy > p {
+  margin: 0 0 14px;
+}
+
+.arequipa-method-map {
+  margin: 0;
+
+  padding: 15px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-method-map img {
+  display: block;
+
+  width: 100%;
+}
+
+
+/* Selected scale */
+
+.arequipa-scale-choice {
+  margin-top: 24px;
+
+  padding: 18px 20px;
+
+  border-radius: var(--radius-md);
+
+  background: rgba(36, 91, 82, 0.055);
+}
+
+.arequipa-scale-choice > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+.arequipa-scale-choice strong {
+  display: block;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.arequipa-scale-choice p {
+  margin: 6px 0 0;
+
+  font-size: 0.8rem;
+}
+
+
+/* ---------------------------------------------------------
+   Metrics introduction
+   --------------------------------------------------------- */
+
+.arequipa-metrics-intro {
+  max-width: 680px;
+
+  margin-top: 20px;
+}
+
+.arequipa-metrics-intro p {
+  max-width: 640px;
+
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Metric story sections
+   --------------------------------------------------------- */
+
+.arequipa-metric-story {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.72fr)
+    minmax(400px, 1fr);
+
+  gap: clamp(44px, 7vw, 86px);
+
+  align-items: center;
+
+  padding-block: 50px;
+}
+
+.arequipa-metric-story--reverse {
+  grid-template-columns:
+    minmax(400px, 1fr)
+    minmax(0, 0.72fr);
+}
+
+.arequipa-metric-story-copy {
+  max-width: 480px;
+}
+
+.arequipa-metric-order {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--color-muted);
+
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.arequipa-metric-change {
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin: 14px 0 18px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.arequipa-metric-change span {
+  color: var(--color-muted);
+}
+
+.arequipa-metric-story-copy p {
+  margin: 0 0 13px;
+}
+
+.arequipa-metric-story-map {
+  margin: 0;
+
+  padding: 15px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-metric-story-map img {
+  display: block;
+
+  width: 100%;
+  max-height: 440px;
+
+  object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------
+   Local analysis
+   --------------------------------------------------------- */
+
+.arequipa-local-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(350px, 0.9fr)
+    minmax(0, 1fr);
+
+  gap: clamp(46px, 7vw, 88px);
+
+  align-items: center;
+}
+
+.arequipa-local-map {
+  width: min(100%, 500px);
+
+  margin: 0;
+
+  padding: 18px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-local-map img {
+  display: block;
+
+  width: 100%;
+
+  object-fit: contain;
+}
+
+.arequipa-local-copy {
+  max-width: 500px;
+}
+
+.arequipa-local-copy p {
+  margin: 0 0 14px;
+}
+
+
+/* ---------------------------------------------------------
+   Local graph
+   --------------------------------------------------------- */
+
+.arequipa-local-graph-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.72fr)
+    minmax(400px, 1fr);
+
+  gap: clamp(44px, 7vw, 86px);
+
+  align-items: center;
+}
+
+.arequipa-local-graph-layout > div:first-child {
+  max-width: 460px;
+}
+
+.arequipa-image-placeholder {
+  display: flex;
+
+  min-height: 280px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  border: 1px dashed rgba(36, 91, 82, 0.35);
+  border-radius: var(--radius-md);
+
+  background: rgba(36, 91, 82, 0.025);
+
+  text-align: center;
+}
+
+.arequipa-image-placeholder > span {
+  margin-bottom: 8px;
+
+  color: var(--color-accent-strong);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.arequipa-image-placeholder strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.arequipa-image-placeholder p {
+  margin: 8px 0 0;
+
+  font-size: 0.75rem;
+}
+
+.arequipa-local-graph {
+  margin: 0;
+  padding: 16px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-local-graph img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* ---------------------------------------------------------
+   Final takeaway
+   --------------------------------------------------------- */
+
+.arequipa-takeaway {
+  max-width: 720px;
+
+  margin-top: 34px;
+  padding: 44px 0 32px;
+}
+
+.arequipa-takeaway h2 {
+  max-width: 680px;
+}
+
+.arequipa-takeaway p {
+  max-width: 650px;
+}
+
+
+/* ---------------------------------------------------------
+   Bottom navigation
+   --------------------------------------------------------- */
+
+.arequipa-bottom-navigation {
+  display: flex;
+
+  justify-content: flex-start;
+
+  padding: 18px 0 50px;
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .arequipa-opening,
+  .arequipa-growth-layout,
+  .arequipa-method-layout,
+  .arequipa-metric-story,
+  .arequipa-metric-story--reverse,
+  .arequipa-local-layout,
+  .arequipa-local-graph-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .arequipa-number-story {
+    max-width: 620px;
+  }
+
+  .arequipa-growth-map,
+  .arequipa-local-map {
+    width: min(100%, 580px);
+
+    justify-self: start;
+  }
+
+  .arequipa-metric-story-map {
+    max-width: 650px;
+  }
+
+}
+
+
+@media (max-width: 680px) {
+
+  .arequipa-section,
+  .arequipa-metric-story {
+    padding-block: 38px;
+  }
+
+  .arequipa-scroll-cue {
+    margin-bottom: 38px;
+  }
+
+  .arequipa-number-story {
+    grid-template-columns: 1fr;
+  }
+
+  .arequipa-number-story article:first-child {
+    grid-column: auto;
+  }
+
+  .arequipa-growth-years {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .arequipa-scroll-button {
+    animation: none;
+  }
+
+}
+
+/* =========================================================
+   Urban Growth Modeling in Arequipa
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Safety / layout containment
+   --------------------------------------------------------- */
+
+.arequipa-model-project .project-detail-page,
+.arequipa-model-project .project-detail-page *,
+.arequipa-model-project .model-intro > *,
+.arequipa-model-project .model-section > *,
+.arequipa-model-project [class*="grid"] > * {
+  min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Typography
+
+   Project title remains the largest text on this page.
+   --------------------------------------------------------- */
+
+.arequipa-model-project .project-detail-content h1 {
+  font-size: clamp(1.7rem, 2.3vw, 1.95rem);
+  line-height: 1.08;
+}
+
+.arequipa-model-project .project-detail-page h2,
+.arequipa-model-project .project-detail-page h3 {
+  margin-top: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.arequipa-model-project .project-detail-page h2 {
+  margin-bottom: 12px;
+
+  font-size: clamp(1.35rem, 2vw, 1.68rem);
+  line-height: 1.16;
+}
+
+.arequipa-model-project .project-detail-page h3 {
+  margin-bottom: 7px;
+
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.25;
+}
+
+
+/* ---------------------------------------------------------
+   Intro
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-intro {
+  grid-template-columns:
+    minmax(0, 0.86fr)
+    minmax(400px, 1.14fr);
+
+  gap: clamp(38px, 6vw, 68px);
+
+  align-items: center;
+
+  margin-bottom: 6px;
+}
+
+.arequipa-model-project .model-intro .project-detail-content {
+  max-width: 530px;
+}
+
+.arequipa-model-project .model-intro .project-detail-content > p {
+  margin-bottom: 14px;
+}
+
+.arequipa-model-project .model-intro .arequipa-scroll-cue {
+  max-width: 530px;
+
+  margin-top: 16px;
+}
+
+
+/* ---------------------------------------------------------
+   Shared project sections
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-section {
+  padding-block: 38px;
+}
+
+.arequipa-model-project .model-section-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--color-accent-strong);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+}
+
+.arequipa-model-project .model-section p {
+  color: var(--color-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.arequipa-model-project .model-section-heading {
+  max-width: 720px;
+
+  margin-bottom: 20px;
+}
+
+.arequipa-model-project .model-section-heading p {
+  max-width: 680px;
+
+  margin: 0;
+}
+
+.arequipa-model-project #model-story {
+  scroll-margin-top: 96px;
+}
+
+
+/* ---------------------------------------------------------
+   Shared project figures
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-figure,
+.arequipa-model-project .model-validation-figure {
+  overflow: hidden;
+
+  margin: 0;
+  padding: 12px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-figure img,
+.arequipa-model-project .model-validation-figure img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.arequipa-model-project .model-figure figcaption,
+.arequipa-model-project .model-validation-figure figcaption {
+  margin-top: 8px;
+
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* Intro figure */
+
+.arequipa-model-project .model-intro-figure {
+  width: 100%;
+  max-width: 650px;
+
+  justify-self: end;
+}
+
+.arequipa-model-project .model-intro-figure img {
+  max-height: 340px;
+}
+
+
+/* ---------------------------------------------------------
+   Project overview
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-overview {
+  padding-top: 42px;
+}
+
+.arequipa-model-project .model-fact-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.arequipa-model-project .model-fact-card {
+  padding: 18px 20px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-card-index {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.arequipa-model-project .model-fact-card p {
+  margin: 0;
+
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   Model inputs
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-driver-grid {
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.arequipa-model-project .model-driver-card {
+  grid-column: span 3;
+
+  padding: 16px 17px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-driver-card:nth-child(n + 5) {
+  grid-column: span 4;
+}
+
+.arequipa-model-project .model-driver-icon {
+  display: grid;
+
+  width: 34px;
+  height: 34px;
+
+  margin-bottom: 10px;
+
+  place-items: center;
+
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+
+  background: rgba(36, 91, 82, 0.04);
+  color: var(--color-accent);
+}
+
+.arequipa-model-project .model-driver-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.arequipa-model-project .model-driver-card p {
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+
+/* ---------------------------------------------------------
+   Variable selection
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-variable-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(400px, 1.1fr);
+
+  gap: clamp(38px, 6vw, 70px);
+
+  align-items: center;
+}
+
+.arequipa-model-project .model-variable-copy {
+  max-width: 540px;
+}
+
+.arequipa-model-project .model-variable-copy > p {
+  margin: 0 0 18px;
+
+  color: var(--color-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+
+/* Compact 3 × 2 workflow */
+
+.arequipa-model-project .model-workflow {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 9px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  counter-reset: model-step;
+}
+
+.arequipa-model-project .model-workflow li {
+  position: relative;
+
+  min-height: 68px;
+
+  padding: 13px 12px 12px 38px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text);
+  background: var(--color-surface);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+
+  counter-increment: model-step;
+}
+
+.arequipa-model-project .model-workflow li::before {
+  position: absolute;
+
+  top: 13px;
+  left: 12px;
+
+  color: var(--color-accent-strong);
+
+  content: counter(model-step, decimal-leading-zero);
+
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+
+/* Remove old vertical-arrow workflow */
+
+.arequipa-model-project .model-workflow li::after {
+  content: none;
+}
+
+
+/* Regression figure */
+
+.arequipa-model-project .model-variable-figure {
+  width: 100%;
+}
+
+.arequipa-model-project .model-variable-figure img {
+  max-height: 340px;
+}
+
+
+/* ---------------------------------------------------------
+   Model insights
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-insight-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.arequipa-model-project .model-insight-card {
+  padding: 18px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-insight-card strong {
+  display: block;
+
+  margin: 11px 0 8px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.arequipa-model-project .model-insight-card p {
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+
+/* ---------------------------------------------------------
+   Model performance
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-performance {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(190px, 0.3fr);
+
+  gap: clamp(36px, 7vw, 80px);
+
+  align-items: center;
+
+  margin-block: 28px;
+
+  padding: 30px clamp(26px, 5vw, 52px);
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-page-banner);
+}
+
+.arequipa-model-project .model-performance-copy {
+  max-width: 650px;
+}
+
+.arequipa-model-project .model-performance-copy p {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.arequipa-model-project .model-performance-values {
+  display: flex;
+
+  min-width: 0;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.arequipa-model-project .model-primary-value,
+.arequipa-model-project .model-secondary-value {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.arequipa-model-project .model-primary-value {
+  gap: 5px;
+}
+
+.arequipa-model-project .model-primary-value strong {
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
+  line-height: 1;
+}
+
+.arequipa-model-project .model-primary-value span,
+.arequipa-model-project .model-secondary-value span {
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.arequipa-model-project .model-secondary-value {
+  gap: 4px;
+
+  padding-top: 13px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+.arequipa-model-project .model-secondary-value strong {
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+}
+
+
+/* ---------------------------------------------------------
+   Urban growth simulation
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-simulation-figure {
+  width: min(100%, 940px);
+
+  margin-inline: auto;
+}
+
+.arequipa-model-project .model-simulation-figure img {
+  max-height: 360px;
+}
+
+.arequipa-model-project .model-comparison-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.arequipa-model-project .model-comparison-card {
+  padding: 17px 19px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-comparison-card p {
+  margin: 0;
+
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   Model comparison metrics
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-metric-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.arequipa-model-project .model-metric-card {
+  padding: 18px 20px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-metric-card dl {
+  display: grid;
+
+  gap: 0;
+
+  margin: 14px 0 0;
+}
+
+.arequipa-model-project .model-metric-card dl > div {
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+
+  align-items: baseline;
+
+  gap: 16px;
+
+  padding: 9px 0;
+
+  border-top: 1px solid var(--color-line);
+}
+
+.arequipa-model-project .model-metric-card dt {
+  color: var(--color-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.arequipa-model-project .model-metric-card dd {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.arequipa-model-project .model-metric-card dl > div:first-child dd {
+  color: var(--color-accent-strong);
+}
+
+.arequipa-model-project .model-section-note {
+  max-width: 850px;
+
+  margin: 16px 0 0;
+
+  padding: 9px 0 9px 15px;
+
+  border-left: 2px solid var(--color-accent);
+
+  color: var(--color-muted);
+
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
+   Landscape metrics table
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-landscape-table-wrap {
+  overflow-x: auto;
+
+  width: 100%;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.arequipa-model-project .model-landscape-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.arequipa-model-project .model-landscape-table th,
+.arequipa-model-project .model-landscape-table td {
+  padding: 13px 18px;
+
+  border-bottom: 1px solid var(--color-line);
+
+  text-align: right;
+}
+
+.arequipa-model-project .model-landscape-table th:first-child,
+.arequipa-model-project .model-landscape-table td:first-child {
+  text-align: left;
+}
+
+.arequipa-model-project .model-landscape-table thead th {
+  color: var(--color-muted);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+.arequipa-model-project .model-landscape-table tbody th {
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.arequipa-model-project .model-landscape-table tbody td {
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.arequipa-model-project .model-landscape-table tbody td:nth-child(2) {
+  color: var(--color-accent-strong);
+}
+
+.arequipa-model-project .model-landscape-table tbody tr:last-child th,
+.arequipa-model-project .model-landscape-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Real-world validation
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-validation-gallery {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.arequipa-model-project .model-validation-figure {
+  padding: 10px;
+}
+
+.arequipa-model-project .model-validation-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  object-fit: contain;
+}
+
+.arequipa-model-project .model-validation-figure figcaption {
+  margin-top: 7px;
+
+  font-size: 0.7rem;
+}
+
+
+/* ---------------------------------------------------------
+   Key takeaway
+   --------------------------------------------------------- */
+
+.arequipa-model-project .model-takeaway {
+  max-width: 790px;
+
+  padding-top: 42px;
+  padding-bottom: 20px;
+}
+
+.arequipa-model-project .model-takeaway h2 {
+  max-width: 720px;
+}
+
+.arequipa-model-project .model-takeaway p {
+  max-width: 720px;
+
+  margin: 0;
+}
+
+.arequipa-model-project .model-bottom-navigation {
+  display: flex;
+
+  justify-content: flex-start;
+
+  padding: 14px 0 42px;
+}
+
+
+/* ---------------------------------------------------------
+   Responsive - tablet
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+  .arequipa-model-project .model-intro,
+  .arequipa-model-project .model-variable-layout {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 34px;
+  }
+
+  .arequipa-model-project .model-driver-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .arequipa-model-project .model-driver-card,
+  .arequipa-model-project .model-driver-card:nth-child(n + 5) {
+    grid-column: auto;
+  }
+
+  .arequipa-model-project .model-insight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Responsive - smaller tablet / mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 780px) {
+
+  .arequipa-model-project .project-detail-page {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .arequipa-model-project .model-section {
+    padding-block: 30px;
+  }
+
+  .arequipa-model-project .model-section-heading {
+    margin-bottom: 18px;
+  }
+
+  .arequipa-model-project .model-intro,
+  .arequipa-model-project .model-variable-layout,
+  .arequipa-model-project .model-performance {
+    grid-template-columns: 1fr;
+  }
+
+  .arequipa-model-project .model-intro {
+    gap: 24px;
+  }
+
+  .arequipa-model-project .model-intro-figure {
+    width: min(100%, 650px);
+
+    justify-self: start;
+  }
+
+  .arequipa-model-project .model-fact-grid,
+  .arequipa-model-project .model-metric-grid,
+  .arequipa-model-project .model-validation-gallery,
+  .arequipa-model-project .model-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arequipa-model-project .model-driver-grid,
+  .arequipa-model-project .model-insight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .arequipa-model-project .model-workflow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .arequipa-model-project .model-performance {
+    gap: 20px;
+
+    margin-block: 24px;
+
+    padding: 24px;
+  }
+
+  .arequipa-model-project .model-performance-values {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+  }
+
+  .arequipa-model-project .model-secondary-value {
+    padding-top: 0;
+    padding-left: 18px;
+
+    border-top: 0;
+    border-left: 1px solid var(--color-line);
+  }
+
+  .arequipa-model-project .model-landscape-table {
+    min-width: 600px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Responsive - phone
+   --------------------------------------------------------- */
+
+@media (max-width: 520px) {
+
+  .arequipa-model-project .project-detail-content h1 {
+    max-width: 100%;
+
+    overflow-wrap: break-word;
+  }
+
+  .arequipa-model-project .model-driver-grid,
+  .arequipa-model-project .model-insight-grid,
+  .arequipa-model-project .model-workflow {
+    grid-template-columns: 1fr;
+  }
+
+  .arequipa-model-project .model-performance-values {
+    grid-template-columns: 1fr;
+  }
+
+  .arequipa-model-project .model-secondary-value {
+    padding-top: 12px;
+    padding-left: 0;
+
+    border-top: 1px solid var(--color-line);
+    border-left: 0;
+  }
+
+  .arequipa-model-project .model-fact-card,
+  .arequipa-model-project .model-driver-card,
+  .arequipa-model-project .model-insight-card,
+  .arequipa-model-project .model-comparison-card,
+  .arequipa-model-project .model-metric-card {
+    padding: 16px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .arequipa-model-project .arequipa-scroll-button {
+    animation: none;
+  }
+
+}
+
+/* =========================================================
+   Integrated Flood Risk Management in Kampala
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Layout safety
+   --------------------------------------------------------- */
+
+.kampala-flood-project .project-detail-page,
+.kampala-flood-project .project-detail-page *,
+.kampala-flood-project .kampala-intro > *,
+.kampala-flood-project .kampala-section > *,
+.kampala-flood-project [class*="grid"] > * {
+  min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Typography
+
+   The project title must remain the largest text on the page.
+   --------------------------------------------------------- */
+
+.kampala-flood-project .project-detail-content h1 {
+  font-size: clamp(1.7rem, 2.3vw, 1.95rem);
+  line-height: 1.08;
+}
+
+.kampala-flood-project .project-detail-page h2,
+.kampala-flood-project .project-detail-page h3 {
+  margin-top: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.kampala-flood-project .project-detail-page h2 {
+  margin-bottom: 12px;
+
+  font-size: clamp(1.35rem, 2vw, 1.68rem);
+  line-height: 1.16;
+}
+
+.kampala-flood-project .project-detail-page h3 {
+  margin-bottom: 7px;
+
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.25;
+}
+
+
+/* ---------------------------------------------------------
+   Shared section system
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-section {
+  padding-block: 38px;
+}
+
+.kampala-flood-project .kampala-section-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--color-accent-strong);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+}
+
+.kampala-flood-project .kampala-section-heading {
+  max-width: 760px;
+
+  margin-bottom: 20px;
+}
+
+.kampala-flood-project .kampala-section-heading p {
+  max-width: 690px;
+
+  margin: 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.kampala-flood-project .kampala-section p {
+  color: var(--color-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.kampala-flood-project #kampala-story {
+  scroll-margin-top: 96px;
+}
+
+
+/* ---------------------------------------------------------
+   Shared figures
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-figure {
+  overflow: hidden;
+
+  margin: 0;
+  padding: 11px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-figure img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.kampala-flood-project .kampala-figure figcaption {
+  margin-top: 8px;
+
+  color: var(--color-muted);
+
+  font-size: 0.71rem;
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   Intro
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-intro {
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(390px, 1.12fr);
+
+  gap: clamp(38px, 6vw, 68px);
+
+  align-items: center;
+
+  margin-bottom: 4px;
+}
+
+.kampala-flood-project .kampala-intro .project-detail-content {
+  max-width: 540px;
+}
+
+.kampala-flood-project .kampala-intro .project-detail-content > p {
+  margin-bottom: 14px;
+}
+
+.kampala-flood-project .kampala-intro-figure {
+  width: 100%;
+  max-width: 590px;
+
+  justify-self: end;
+}
+
+.kampala-flood-project .kampala-intro-figure img {
+  max-height: 355px;
+}
+
+.kampala-flood-project .kampala-scroll-cue {
+  display: flex;
+
+  width: 100%;
+
+  margin-top: 17px;
+  margin-bottom: 0;
+
+  flex-direction: column;
+  align-items: center;
+
+  gap: 7px;
+
+  text-align: center;
+}
+
+.kampala-flood-project .kampala-scroll-cue > span {
+  color: var(--color-text);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+
+/* Reuse the same circular visual language as Arequipa */
+
+.kampala-flood-project .arequipa-scroll-button {
+  display: grid;
+
+  width: 42px;
+  height: 42px;
+
+  place-items: center;
+
+  border: 1px solid var(--color-accent-strong);
+  border-radius: 50%;
+
+  color: var(--color-accent-strong);
+  background: transparent;
+
+  text-decoration: none;
+}
+
+.kampala-flood-project .arequipa-scroll-button span {
+  line-height: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Project overview
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-overview {
+  padding-top: 42px;
+}
+
+.kampala-flood-project .kampala-overview-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+.kampala-flood-project .kampala-overview-card {
+  padding: 18px 20px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-card-index {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.kampala-flood-project .kampala-overview-card p {
+  margin: 0;
+
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   Study area
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-study-area {
+  display: grid;
+
+  grid-template-columns:
+    minmax(340px, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap: clamp(38px, 6vw, 72px);
+
+  align-items: center;
+}
+
+.kampala-flood-project .kampala-study-area-figure {
+  width: 100%;
+  max-width: 470px;
+}
+
+.kampala-flood-project .kampala-study-area-figure img {
+  max-height: 390px;
+}
+
+.kampala-flood-project .kampala-study-area-copy {
+  max-width: 560px;
+}
+
+.kampala-flood-project .kampala-study-area-copy > p {
+  margin: 0 0 20px;
+}
+
+.kampala-flood-project .kampala-study-facts {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.kampala-flood-project .kampala-study-facts > div {
+  padding: 13px 14px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-study-facts strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.15;
+}
+
+.kampala-flood-project .kampala-study-facts span {
+  display: block;
+
+  color: var(--color-muted);
+
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+
+/* ---------------------------------------------------------
+   Exposure indicators
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-indicator-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+.kampala-flood-project .kampala-indicator-card {
+  padding: 17px 18px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-indicator-icon {
+  display: grid;
+
+  width: 35px;
+  height: 35px;
+
+  margin-bottom: 11px;
+
+  place-items: center;
+
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+
+  color: var(--color-accent-strong);
+  background: rgba(36, 91, 82, 0.04);
+}
+
+.kampala-flood-project .kampala-indicator-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.kampala-flood-project .kampala-indicator-card p {
+  margin: 0;
+
+  font-size: 0.83rem;
+  line-height: 1.48;
+}
+
+
+/* 50 × 50 grid callout */
+
+.kampala-flood-project .kampala-grid-method {
+  display: grid;
+
+  grid-template-columns: auto minmax(0, 1fr);
+
+  gap: 22px;
+
+  align-items: center;
+
+  max-width: 780px;
+
+  margin-top: 16px;
+  margin-bottom: 18px;
+
+  padding: 16px 18px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-grid-number {
+  padding-right: 20px;
+
+  border-right: 1px solid var(--color-line);
+}
+
+.kampala-flood-project .kampala-grid-number strong {
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.kampala-flood-project .kampala-grid-method h3 {
+  margin-bottom: 4px;
+}
+
+.kampala-flood-project .kampala-grid-method p {
+  max-width: 620px;
+
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+
+/* Current exposure image */
+
+.kampala-flood-project .kampala-exposure-figure {
+  width: min(100%, 560px);
+
+  margin-inline: auto;
+}
+
+.kampala-flood-project .kampala-exposure-figure img {
+  max-height: 430px;
+}
+
+
+/* ---------------------------------------------------------
+   Risk equation / framework
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-risk-equation {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  gap: 10px;
+
+  align-items: stretch;
+}
+
+.kampala-flood-project .kampala-risk-equation article {
+  padding: 17px 16px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-risk-equation article > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.kampala-flood-project .kampala-risk-equation article p {
+  margin: 0;
+
+  font-size: 0.8rem;
+  line-height: 1.48;
+}
+
+.kampala-flood-project .kampala-equation-symbol {
+  display: grid;
+
+  min-width: 22px;
+
+  place-items: center;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.kampala-flood-project .kampala-risk-result {
+  border-color: var(--color-accent) !important;
+
+  background: var(--color-page-banner) !important;
+}
+
+
+/* ---------------------------------------------------------
+   Paired maps
+
+   Used for:
+   - urban growth scenarios
+   - future exposure
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-two-map-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  max-width: 900px;
+
+  margin-inline: auto;
+}
+
+.kampala-flood-project .kampala-two-map-grid .kampala-figure {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.kampala-flood-project .kampala-two-map-grid img {
+  max-height: 390px;
+}
+
+
+/* ---------------------------------------------------------
+   Current vs future risk
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-three-map-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+.kampala-flood-project .kampala-three-map-grid .kampala-figure {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.kampala-flood-project .kampala-three-map-grid img {
+  max-height: 355px;
+}
+
+.kampala-flood-project .kampala-insight-note {
+  max-width: 850px;
+
+  margin: 18px 0 0;
+
+  padding: 9px 0 9px 15px;
+
+  border-left: 2px solid var(--color-accent);
+
+  color: var(--color-muted);
+
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
+   Intervention priorities
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-interventions {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(380px, 1.12fr);
+
+  gap: clamp(38px, 6vw, 72px);
+
+  align-items: center;
+}
+
+.kampala-flood-project .kampala-intervention-copy {
+  max-width: 540px;
+}
+
+.kampala-flood-project .kampala-intervention-copy p {
+  margin: 0 0 14px;
+}
+
+.kampala-flood-project .kampala-intervention-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.kampala-flood-project .kampala-intervention-figure {
+  width: 100%;
+  max-width: 560px;
+
+  justify-self: end;
+}
+
+.kampala-flood-project .kampala-intervention-figure img {
+  max-height: 390px;
+}
+
+
+/* ---------------------------------------------------------
+   Mitigation strategies
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-strategy-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.kampala-flood-project .kampala-strategy-panel {
+  padding: 21px 22px;
+
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.kampala-flood-project .kampala-strategy-number {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-accent-strong);
+
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.kampala-flood-project .kampala-strategy-panel ul {
+  display: grid;
+
+  gap: 8px;
+
+  margin: 14px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.kampala-flood-project .kampala-strategy-panel li {
+  position: relative;
+
+  padding-left: 17px;
+
+  color: var(--color-muted);
+
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.kampala-flood-project .kampala-strategy-panel li::before {
+  position: absolute;
+
+  top: 0.55em;
+  left: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--color-accent);
+
+  content: "";
+}
+
+
+/* ---------------------------------------------------------
+   Key takeaway
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-takeaway {
+  max-width: 810px;
+
+  padding-top: 42px;
+  padding-bottom: 18px;
+}
+
+.kampala-flood-project .kampala-takeaway h2 {
+  max-width: 730px;
+}
+
+.kampala-flood-project .kampala-takeaway p {
+  max-width: 740px;
+
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Bottom navigation
+   --------------------------------------------------------- */
+
+.kampala-flood-project .kampala-bottom-navigation {
+  display: flex;
+
+  justify-content: flex-start;
+
+  padding: 14px 0 42px;
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Tablet
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+  .kampala-flood-project .kampala-intro,
+  .kampala-flood-project .kampala-study-area,
+  .kampala-flood-project .kampala-interventions {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 34px;
+  }
+
+  .kampala-flood-project .kampala-risk-equation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .kampala-flood-project .kampala-equation-symbol {
+    display: none;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Small tablet / mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 780px) {
+
+  .kampala-flood-project .project-detail-page {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .kampala-flood-project .kampala-section {
+    padding-block: 30px;
+  }
+
+  .kampala-flood-project .kampala-section-heading {
+    margin-bottom: 18px;
+  }
+
+
+  /* Intro */
+
+  .kampala-flood-project .kampala-intro {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .kampala-flood-project .kampala-intro-figure {
+    width: min(100%, 590px);
+
+    justify-self: start;
+  }
+
+
+  /* Main layouts */
+
+  .kampala-flood-project .kampala-study-area,
+  .kampala-flood-project .kampala-interventions {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .kampala-flood-project .kampala-study-area-figure,
+  .kampala-flood-project .kampala-intervention-figure {
+    width: min(100%, 560px);
+
+    justify-self: start;
+  }
+
+
+  /* Grids */
+
+  .kampala-flood-project .kampala-overview-grid,
+  .kampala-flood-project .kampala-indicator-grid,
+  .kampala-flood-project .kampala-three-map-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kampala-flood-project .kampala-two-map-grid,
+  .kampala-flood-project .kampala-strategy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kampala-flood-project .kampala-risk-equation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+
+  /* Grid method */
+
+  .kampala-flood-project .kampala-grid-method {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .kampala-flood-project .kampala-grid-number {
+    padding-right: 0;
+    padding-bottom: 10px;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+
+  /* Study facts */
+
+  .kampala-flood-project .kampala-study-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Phone
+   --------------------------------------------------------- */
+
+@media (max-width: 520px) {
+
+  .kampala-flood-project .project-detail-content h1 {
+    max-width: 100%;
+
+    overflow-wrap: break-word;
+  }
+
+  .kampala-flood-project .kampala-study-facts,
+  .kampala-flood-project .kampala-risk-equation {
+    grid-template-columns: 1fr;
+  }
+
+  .kampala-flood-project .kampala-overview-card,
+  .kampala-flood-project .kampala-indicator-card,
+  .kampala-flood-project .kampala-strategy-panel {
+    padding: 16px;
+  }
+
+  .kampala-flood-project .kampala-two-map-grid img,
+  .kampala-flood-project .kampala-three-map-grid img {
+    max-height: none;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .kampala-flood-project .arequipa-scroll-button {
+    animation: none;
+  }
+
 }

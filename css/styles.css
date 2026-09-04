@@ -713,6 +713,29 @@ page-heading {
   padding-top: 18px;
 }
 
+.project-card-external-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-card-actions--suhi {
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+}
+
+.project-card-actions--suhi > .project-card-link {
+  margin-block: 2px -2px;
+  white-space: nowrap;
+}
+
+.project-card-actions--suhi .project-card-external-actions {
+  width: 100%;
+  justify-content: flex-end;
+}
+
 
 /* Read more */
 
@@ -751,8 +774,8 @@ page-heading {
 
 /*
    The Read more link is stretched across the entire
-   project card. The actual external Visit button stays
-   independently clickable above it.
+   project card. External project actions stay independently
+   clickable above it.
 */
 
 .projects-page
@@ -771,7 +794,7 @@ page-heading {
   content: "";
 }
 
-/* Keep Visit dashboard / website / StoryMap clickable */
+/* Keep external project actions clickable */
 
 .projects-page
   .featured-project-card:not(.project-card--placeholder)
@@ -1964,6 +1987,15 @@ page-banner + .page {
 
   .project-card-visit-link {
     justify-self: start;
+  }
+
+  .project-card-external-actions {
+    align-items: flex-start;
+  }
+
+  .project-card-actions--suhi > .project-card-link {
+    align-self: start;
+    margin-block: 0;
   }
 }
 

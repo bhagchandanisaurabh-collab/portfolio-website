@@ -5,7 +5,12 @@
     { href: "index.html", label: "Home" },
     { href: "about.html", label: "About" },
     { href: "work.html", label: "Projects" },
-    { href: "contact.html", label: "Contact" }
+    { href: "contact.html", label: "Contact" },
+    {
+      href: "assets/Saurabh_Bhagchandani_CV.pdf",
+      label: "CV",
+      external: true
+    }
   ];
 
   // Replace these placeholder destinations with your real profile links.
@@ -100,6 +105,11 @@
     var link = document.createElement("a");
     link.href = page.href;
     link.textContent = page.label;
+
+    if (page.external) {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
 
     if (page.href === currentPage) {
       link.setAttribute("aria-current", "page");

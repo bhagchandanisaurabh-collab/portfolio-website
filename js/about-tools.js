@@ -59,7 +59,6 @@
   var stage = section.querySelector(".tools-stage");
   var buttons = Array.from(section.querySelectorAll(".tools-category"));
   var orbit = section.querySelector(".tools-orbit");
-  var motionButton = section.querySelector(".tools-motion-toggle");
   var status = section.querySelector(".tools-status");
   var hoverInput = window.matchMedia("(min-width: 769px) and (hover: hover) and (pointer: fine)");
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -137,7 +136,6 @@
     orbit.setAttribute("aria-labelledby", button.id);
     orbit.removeAttribute("aria-label");
     orbit.hidden = false;
-    motionButton.hidden = false;
     status.textContent = button.querySelector(".tools-category-label").textContent + ": " + categories[category].length + " tools.";
     revealTimer = setTimeout(function () {
       stage.classList.remove("is-switching");
@@ -181,14 +179,6 @@
         activate(button);
       }
     });
-  });
-
-  motionButton.addEventListener("click", function () {
-    var paused = stage.classList.toggle("is-paused");
-    var label = paused ? "Resume tool orbit" : "Pause tool orbit";
-    motionButton.setAttribute("aria-pressed", String(paused));
-    motionButton.setAttribute("aria-label", label);
-    motionButton.title = label;
   });
 
   window.addEventListener("resize", function () {
