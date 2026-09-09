@@ -151,6 +151,50 @@
     return icon;
   }
 
+  function initializeMediaSkeletons() {
+    var excludedMediaSelector =
+      ".tools-tool-icon img, .footer-social-links img, [data-no-skeleton]";
+
+    document.querySelectorAll("img").forEach(function (image) {
+      if (image.matches(excludedMediaSelector) || image.closest(".media-skeleton")) {
+        return;
+      }
+
+      var mediaElement =
+        image.parentElement && image.parentElement.tagName === "PICTURE"
+          ? image.parentElement
+          : image;
+      var parent = mediaElement.parentElement;
+
+      if (!parent) {
+        return;
+      }
+
+      var host = parent;
+
+      if (parent.children.length > 1) {
+        host = document.createElement("span");
+        host.className = "media-skeleton-frame";
+        parent.insertBefore(host, mediaElement);
+        host.appendChild(mediaElement);
+      }
+
+      host.classList.add("media-skeleton");
+      image.classList.add("media-skeleton-image");
+
+      var revealImage = function () {
+        host.classList.add("is-media-ready");
+      };
+
+      if (image.complete) {
+        revealImage();
+      } else {
+        image.addEventListener("load", revealImage, { once: true });
+        image.addEventListener("error", revealImage, { once: true });
+      }
+    });
+  }
+
   class SiteHeader extends HTMLElement {
     connectedCallback() {
       if (!this._rendered) {
@@ -432,4 +476,6 @@
   if (!customElements.get("page-heading")) {
     customElements.define("page-heading", PageHeading);
   }
+
+  initializeMediaSkeletons();
 })();
