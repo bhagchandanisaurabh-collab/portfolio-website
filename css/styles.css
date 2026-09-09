@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Libre+Baskerville:wght@700&family=Manrope:wght@800&display=swap");
-
 :root {
   --color-bg: #ffffff;
   --color-surface: #ffffff;
@@ -459,22 +457,22 @@ page-heading {
 }
 
 .work-area-card:nth-child(1) {
-  --work-area-image: url("../assets/whatido-gis.png");
+  --work-area-image: url("../assets/whatido-gis.webp");
   --work-area-image-opacity: 0.93;
 }
 
 .work-area-card:nth-child(2) {
-  --work-area-image: url("../assets/whatido-earth-observation.png");
+  --work-area-image: url("../assets/whatido-earth-observation.webp");
   --work-area-image-opacity: 0.8;
 }
 
 .work-area-card:nth-child(3) {
-  --work-area-image: url("../assets/whatido-webgis.png");
+  --work-area-image: url("../assets/whatido-webgis.webp");
   --work-area-image-opacity: 0.95;
 }
 
 .work-area-card:nth-child(4) {
-  --work-area-image: url("../assets/whatido-digital-twin.png");
+  --work-area-image: url("../assets/whatido-digital-twin.webp");
   --work-area-image-opacity: 0.95;
 }
 
@@ -1031,7 +1029,7 @@ page-heading {
 .page-banner {
   border-bottom: 1px solid var(--color-line);
   background-color: var(--color-page-banner);
-  background-image: url("../assets/page-header-map.png");
+  background-image: url("../assets/page-header-map.webp");
   background-repeat: no-repeat;
   background-position: center right;
   background-size: cover;
@@ -1095,6 +1093,31 @@ page-heading {
 
 .page {
   padding-block: 72px 88px;
+}
+
+.utility-page-content {
+  max-width: 760px;
+}
+
+.utility-page-content h1 {
+  margin-bottom: 24px;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.utility-page-content h2 {
+  margin: 36px 0 12px;
+  font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+}
+
+.utility-page-content p {
+  color: var(--color-muted);
+}
+
+.utility-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
 }
 
 page-banner + .page {
@@ -1647,6 +1670,8 @@ page-banner + .page {
   min-height: 80px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
   padding: 22px 16px;
   background: var(--color-footer-copyright);
   color: var(--color-text);
@@ -1657,6 +1682,11 @@ page-banner + .page {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.footer-privacy-link {
+  color: var(--color-muted);
+  font-size: 0.85rem;
 }
 
 @media (max-width: 960px) {

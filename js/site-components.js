@@ -280,6 +280,7 @@
       var socialNavigation = document.createElement("nav");
       var copyrightSection = document.createElement("div");
       var copyright = document.createElement("p");
+      var privacyLink = document.createElement("a");
 
       footer.className = "site-footer";
       connectSection.className = "footer-connect";
@@ -313,10 +314,13 @@
         "Copyright \u00a9 " +
         new Date().getFullYear() +
         " Saurabh Bhagchandani.";
+      privacyLink.className = "footer-privacy-link";
+      privacyLink.href = "privacy.html";
+      privacyLink.textContent = "Privacy";
 
       connectInner.append(heading, socialNavigation);
       connectSection.appendChild(connectInner);
-      copyrightSection.appendChild(copyright);
+      copyrightSection.append(copyright, privacyLink);
       footer.append(connectSection, copyrightSection);
       this.appendChild(footer);
       this._rendered = true;
