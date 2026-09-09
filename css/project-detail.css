@@ -1013,6 +1013,16 @@
 }
 
 
+@media (max-width: 780px) {
+
+  .arequipa-project .project-detail-page {
+    width: min(calc(100% - 32px), var(--container));
+    max-width: var(--container);
+  }
+
+}
+
+
 @media (max-width: 680px) {
 
   .arequipa-section,
@@ -1866,8 +1876,8 @@
 @media (max-width: 780px) {
 
   .arequipa-model-project .project-detail-page {
-    width: 100%;
-    max-width: 100%;
+    width: min(calc(100% - 32px), var(--container));
+    max-width: var(--container);
   }
 
   .arequipa-model-project .model-section {
@@ -2781,8 +2791,8 @@
 @media (max-width: 780px) {
 
   .kampala-flood-project .project-detail-page {
-    width: 100%;
-    max-width: 100%;
+    width: min(calc(100% - 32px), var(--container));
+    max-width: var(--container);
   }
 
   .kampala-flood-project .kampala-section {
