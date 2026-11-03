@@ -386,28 +386,19 @@ page-heading {
 }
 
 .hero-text,
-.page-header p,
-.split-section p {
+.page-header p {
   max-width: 680px;
   color: var(--color-muted);
   font-size: 1.14rem;
 }
 
-.eyebrow,
-.project-type {
+.eyebrow {
   margin-bottom: 16px;
   color: var(--color-warm);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-.button-row,
-.work-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 .button {
@@ -441,13 +432,6 @@ page-heading {
 .button.secondary:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
-}
-
-.button.inactive {
-  border-color: var(--color-line);
-  background: #eef1ed;
-  color: var(--color-muted);
-  cursor: not-allowed;
 }
 
 .hero-visual {
@@ -608,39 +592,13 @@ page-heading {
   }
 }
 
-.split-section {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.5fr) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 72px);
-  align-items: start;
-  padding-block: 56px;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.content-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.project-card,
-.info-panel,
-.work-item {
+.project-card {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   background: var(--color-surface);
 }
 
-.info-panel {
-  padding: 24px;
-}
-
-.project-card p,
-.info-panel p,
-.work-item p {
+.project-card p {
   color: var(--color-muted);
 }
 
@@ -701,22 +659,6 @@ page-heading {
   object-position: center;
 }
 
-.project-category {
-  position: absolute;
-  z-index: 1;
-  top: 20px;
-  left: 20px;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  padding: 7px 11px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  font-size: 0.72rem;
-  font-weight: 800;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 .project-card-content {
   display: flex;
   flex: 1;
@@ -763,7 +705,6 @@ page-heading {
   color: var(--color-accent);
 }
 
-
 /* Project card bottom actions */
 
 .project-card-actions {
@@ -800,7 +741,6 @@ page-heading {
   justify-content: flex-end;
 }
 
-
 /* Read more */
 
 .project-card-link {
@@ -830,7 +770,6 @@ page-heading {
 .project-card-link:focus-visible span {
   transform: translateX(4px);
 }
-
 
 /* ==================================================
    Whole-card link behavior on Projects page
@@ -1481,35 +1420,6 @@ page-banner + .page {
   line-height: 1.7;
 }
 
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-  list-style: none;
-}
-
-.tag-list li {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  background: var(--color-surface);
-  font-weight: 700;
-}
-
-.work-list {
-  display: grid;
-  gap: 18px;
-}
-
-.work-item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 24px;
-  align-items: center;
-  padding: 28px;
-}
-
 .contact-section {
   --contact-contours: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20420%20240'%3E%3Cg%20fill='none'%20stroke='%23d9ded6'%20stroke-width='1'%3E%3Cpath%20d='M-20%20238C38%20158%2083%20232%20144%20166S252%20124%20322%2063S397%2047%20440-6'/%3E%3Cpath%20d='M-20%20215C35%20143%2084%20211%20143%20149S247%20108%20316%2049S392%2031%20440-20'/%3E%3Cpath%20d='M-20%20192C32%20127%2082%20189%20140%20132S241%2091%20307%2035S385%2014%20440-36'/%3E%3Cpath%20d='M-20%20169C30%20110%2079%20168%20136%20114S234%2075%20298%2022S378-2%20440-52'/%3E%3Cpath%20d='M-20%20146C27%2094%2077%20146%20132%2097S228%2059%20289%208S369-19%20440-68'/%3E%3Cpath%20d='M-20%20123C25%2077%2074%20125%20128%2079S221%2042%20280-6S361-36%20440-84'/%3E%3C/g%3E%3C/svg%3E");
   position: relative;
@@ -2012,10 +1922,7 @@ page-banner + .page {
     display: inline-flex;
   }
 
-  .hero,
-  .split-section,
-  .content-grid,
-  .work-item {
+  .hero {
     grid-template-columns: 1fr;
   }
 
@@ -2055,10 +1962,6 @@ page-banner + .page {
 
   .hero-bio .hero-text {
     font-size: 1.03rem;
-  }
-
-  .work-actions {
-    justify-content: flex-start;
   }
 }
 

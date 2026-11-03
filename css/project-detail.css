@@ -885,47 +885,13 @@
   max-width: 460px;
 }
 
-.arequipa-image-placeholder {
-  display: flex;
 
-  min-height: 280px;
 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
-  padding: 30px;
 
-  border: 1px dashed rgba(36, 91, 82, 0.35);
-  border-radius: var(--radius-md);
 
-  background: rgba(36, 91, 82, 0.025);
 
-  text-align: center;
-}
 
-.arequipa-image-placeholder > span {
-  margin-bottom: 8px;
-
-  color: var(--color-accent-strong);
-
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-
-  text-transform: uppercase;
-}
-
-.arequipa-image-placeholder strong {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-}
-
-.arequipa-image-placeholder p {
-  margin: 8px 0 0;
-
-  font-size: 0.75rem;
-}
 
 .arequipa-local-graph {
   margin: 0;
@@ -1012,7 +978,6 @@
 
 }
 
-
 @media (max-width: 780px) {
 
   .arequipa-project .project-detail-page {
@@ -1021,7 +986,6 @@
   }
 
 }
-
 
 @media (max-width: 680px) {
 
