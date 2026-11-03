@@ -13,7 +13,6 @@
     }
   ];
 
-  // Replace these placeholder destinations with your real profile links.
   var socialLinks = [
     {
       href: "https://www.linkedin.com/in/saurabh-bhagchandani",
@@ -34,7 +33,7 @@
       external: false
     },
     {
-      href: "https://www.instagram.com/saurabh__bhagchandani?igsi=Y2d6dXd4YnZuMWxo",
+      href: "https://www.instagram.com/saurabh__bhagchandani",
       icon: "instagram",
       label: "Instagram",
       external: true
@@ -96,9 +95,18 @@
     }
   };
 
+  // Netlify serves both "/about" and "/about.html", so compare names without ".html".
+  // Project detail pages count as part of the Projects section.
+  function normalizePage(path) {
+    var name = path.split("/").pop().toLowerCase().replace(/\.html$/, "");
+    if (!name) {
+      return "index";
+    }
+    return name.indexOf("project-") === 0 ? "work" : name;
+  }
+
   function getCurrentPage() {
-    var fileName = window.location.pathname.split("/").pop().toLowerCase();
-    return fileName || "index.html";
+    return normalizePage(window.location.pathname);
   }
 
   function createLink(page, currentPage) {
@@ -111,7 +119,7 @@
       link.rel = "noopener noreferrer";
     }
 
-    if (page.href === currentPage) {
+    if (!page.external && normalizePage(page.href) === currentPage) {
       link.setAttribute("aria-current", "page");
     }
 
@@ -411,24 +419,22 @@
       currentItem.append(separator, document.createTextNode(pageName));
 
       if (parentName && parentHref) {
-  var parentItem = document.createElement("li");
-  var parentLink = document.createElement("a");
-  var parentSeparator = document.createElement("span");
+        var parentItem = document.createElement("li");
+        var parentLink = document.createElement("a");
+        var parentSeparator = document.createElement("span");
 
-  parentItem.className = "breadcrumb-current";
+        parentItem.className = "breadcrumb-item";
+        parentSeparator.className = "breadcrumb-separator";
+        parentSeparator.setAttribute("aria-hidden", "true");
+        parentSeparator.textContent = "\u203a";
+        parentLink.href = parentHref;
+        parentLink.textContent = parentName;
 
-  parentSeparator.className = "breadcrumb-separator";
-  parentSeparator.setAttribute("aria-hidden", "true");
-  parentSeparator.textContent = "\u203a";
-
-  parentLink.href = parentHref;
-  parentLink.textContent = parentName;
-
-  parentItem.append(parentSeparator, parentLink);
-  list.append(homeItem, parentItem, currentItem);
-} else {
-  list.append(homeItem, currentItem);
-} 
+        parentItem.append(parentSeparator, parentLink);
+        list.append(homeItem, parentItem, currentItem);
+      } else {
+        list.append(homeItem, currentItem);
+      }
 
       breadcrumb.appendChild(list);
       inner.append(title, breadcrumb);

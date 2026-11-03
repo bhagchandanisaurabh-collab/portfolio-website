@@ -725,6 +725,7 @@ page-heading {
   padding: 28px;
 }
 
+.project-card-content h2,
 .project-card-content h3,
 .projects-cta-content h3 {
   margin-bottom: 14px;
@@ -1037,7 +1038,7 @@ page-heading {
 
 /* Smaller project titles */
 
-.projects-page .project-card-content h3 {
+.projects-page .project-card-content h2 {
   margin-bottom: 11px;
   font-size: 1.45rem;
   line-height: 1.12;
@@ -1144,6 +1145,7 @@ page-heading {
   text-underline-offset: 3px;
 }
 
+.breadcrumb-item,
 .breadcrumb-current {
   display: inline-flex;
   align-items: center;
