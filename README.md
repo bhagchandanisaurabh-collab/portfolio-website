@@ -28,7 +28,7 @@ The JavaScript stays framework-free and is organized around the shared site comp
 - Change each inner page heading through the `eyebrow`, `heading`, and `description` attributes in its `.html` file.
 - Change page-specific introductions, project text, and contact links inside the `.html` files.
 - Change colors, fonts, spacing, and button styles in `css/styles.css`.
-- Fonts (Caveat 600, Libre Baskerville 700, Manrope 800) are self-hosted in `assets/fonts/` and declared with `@font-face` at the top of `css/styles.css`. To add a weight or font, add its .woff2 file there and a matching `@font-face` rule; do not link Google Fonts, as the security policy blocks it.
+- Fonts (Inter variable 100-900 for body text, Caveat 600, Libre Baskerville 700, Manrope 800) are self-hosted in `assets/fonts/` and declared with `@font-face` at the top of `css/styles.css`. To add a weight or font, add its .woff2 file there and a matching `@font-face` rule; do not link Google Fonts, as the security policy blocks it.
 - Name new images in lowercase with hyphens and a project prefix (for example `kampala-current-risk.webp`), and keep them under about 2000 px on the long side.
 - If a new page loads anything from another website (scripts, fonts, embeds), add that domain to the Content-Security-Policy in `_headers`, or the browser will block it.
 
