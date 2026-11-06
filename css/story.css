@@ -1,0 +1,220 @@
+/* Scroll story between the hero and "What I Do": a green route line leads into space, a satellite
+   flies down to the Netherlands (three maps scan in), and a few Rotterdam buildings turn into a
+   digital twin. Driven by js/story.js; timeline in js/story-plan.js. */
+
+/* ---------- lead-in: a green route line that draws itself, then the page fades into space ---------- */
+.story-lead {
+  position: relative;
+  height: 104vh;
+  min-height: 600px;
+}
+
+/* Portrait screens (phones, upright tablets): the lead-in follows the screen width instead of its
+   height, so the curve keeps close to its laptop proportions instead of stretching into a tall, thin S. */
+@media (max-aspect-ratio: 1/1) {
+  .story-lead {
+    height: min(104vh, 125vw);
+    min-height: 440px;
+  }
+}
+
+.story-lead__line,
+.story-lead__dot {
+  z-index: 1;
+}
+
+.story-lead__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64%;
+  overflow: visible;
+}
+
+.story-lead__line path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.story-lead__dot {
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 6px rgba(36, 91, 82, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.story-lead.is-complete .story-lead__dot {
+  opacity: 1;
+}
+
+/* Below the dot the page darkens into space along a curved edge, like a planet's rim,
+   with a faint blue atmospheric glow, and stars appear as it gets darker. */
+.story-lead__space {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 48%;
+  pointer-events: none;
+}
+
+.story-lead__dome,
+.story-lead__stars {
+  position: absolute;
+  inset: 0;
+}
+
+.story-lead__dome {
+  background: radial-gradient(ellipse 110% 100% at 50% 100%,
+    #000 0%,
+    #000 55%,
+    #02060d 58.5%,
+    #0a1f38 61%,
+    rgba(52, 118, 196, 0.62) 63.5%,
+    rgba(120, 175, 232, 0.34) 66.5%,
+    rgba(190, 220, 248, 0.14) 70.5%,
+    rgba(255, 255, 255, 0) 76%);
+}
+
+.story-lead__stars {
+  --stars: 0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='320'%20height='320'%20viewBox='0%200%20320%20320'%3E%3Ccircle%20cx='103.6'%20cy='48.3'%20r='1.2'%20fill='white'%20fill-opacity='0.28'/%3E%3Ccircle%20cx='262.8'%20cy='30.1'%20r='1.0'%20fill='white'%20fill-opacity='0.29'/%3E%3Ccircle%20cx='162.4'%20cy='12.0'%20r='0.8'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='77.0'%20cy='176.3'%20r='0.5'%20fill='white'%20fill-opacity='0.83'/%3E%3Ccircle%20cx='39.6'%20cy='71.4'%20r='1.2'%20fill='white'%20fill-opacity='0.66'/%3E%3Ccircle%20cx='19.8'%20cy='187.4'%20r='0.5'%20fill='white'%20fill-opacity='0.93'/%3E%3Ccircle%20cx='14.9'%20cy='274.7'%20r='0.7'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='173.0'%20cy='182.7'%20r='1.0'%20fill='white'%20fill-opacity='0.82'/%3E%3Ccircle%20cx='57.8'%20cy='186.1'%20r='1.2'%20fill='white'%20fill-opacity='0.38'/%3E%3Ccircle%20cx='31.2'%20cy='227.9'%20r='1.0'%20fill='white'%20fill-opacity='0.29'/%3E%3Ccircle%20cx='65.9'%20cy='217.7'%20r='0.8'%20fill='white'%20fill-opacity='0.79'/%3E%3Ccircle%20cx='149.0'%20cy='295.5'%20r='0.7'%20fill='white'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='254.2'%20cy='223.7'%20r='0.6'%20fill='white'%20fill-opacity='0.31'/%3E%3Ccircle%20cx='96.1'%20cy='158.4'%20r='0.7'%20fill='white'%20fill-opacity='0.76'/%3E%3Ccircle%20cx='92.1'%20cy='313.7'%20r='0.5'%20fill='white'%20fill-opacity='0.61'/%3E%3Ccircle%20cx='52.8'%20cy='109.5'%20r='0.8'%20fill='white'%20fill-opacity='0.55'/%3E%3Ccircle%20cx='307.8'%20cy='24.8'%20r='1.0'%20fill='white'%20fill-opacity='0.65'/%3E%3Ccircle%20cx='280.2'%20cy='100.4'%20r='1.2'%20fill='white'%20fill-opacity='0.5'/%3E%3Ccircle%20cx='158.9'%20cy='255.0'%20r='0.5'%20fill='white'%20fill-opacity='0.84'/%3E%3Ccircle%20cx='302.3'%20cy='151.7'%20r='1.2'%20fill='white'%20fill-opacity='0.3'/%3E%3Ccircle%20cx='234.0'%20cy='99.1'%20r='1.0'%20fill='white'%20fill-opacity='0.95'/%3E%3Ccircle%20cx='263.0'%20cy='91.1'%20r='0.8'%20fill='white'%20fill-opacity='0.87'/%3E%3Ccircle%20cx='111.0'%20cy='301.0'%20r='0.7'%20fill='white'%20fill-opacity='0.37'/%3E%3Ccircle%20cx='37.5'%20cy='18.9'%20r='0.7'%20fill='white'%20fill-opacity='0.34'/%3E%3Ccircle%20cx='79.2'%20cy='125.1'%20r='0.8'%20fill='white'%20fill-opacity='0.31'/%3E%3Ccircle%20cx='143.7'%20cy='175.8'%20r='0.6'%20fill='white'%20fill-opacity='0.82'/%3E%3Ccircle%20cx='276.5'%20cy='89.1'%20r='0.8'%20fill='white'%20fill-opacity='0.94'/%3E%3Ccircle%20cx='218.5'%20cy='121.7'%20r='0.6'%20fill='white'%20fill-opacity='0.36'/%3E%3Ccircle%20cx='56.4'%20cy='74.2'%20r='0.6'%20fill='white'%20fill-opacity='0.26'/%3E%3Ccircle%20cx='265.9'%20cy='58.3'%20r='0.7'%20fill='white'%20fill-opacity='0.25'/%3E%3Ccircle%20cx='134.1'%20cy='118.2'%20r='1.0'%20fill='white'%20fill-opacity='0.47'/%3E%3Ccircle%20cx='40.2'%20cy='274.9'%20r='1.0'%20fill='white'%20fill-opacity='0.71'/%3E%3Ccircle%20cx='236.7'%20cy='146.1'%20r='1.2'%20fill='white'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='125.6'%20cy='127.7'%20r='0.5'%20fill='white'%20fill-opacity='0.59'/%3E%3Ccircle%20cx='128.1'%20cy='61.0'%20r='0.6'%20fill='white'%20fill-opacity='0.56'/%3E%3Ccircle%20cx='35.2'%20cy='192.2'%20r='0.5'%20fill='white'%20fill-opacity='0.25'/%3E%3Ccircle%20cx='48.4'%20cy='32.5'%20r='0.7'%20fill='white'%20fill-opacity='0.68'/%3E%3Ccircle%20cx='22.5'%20cy='66.5'%20r='0.8'%20fill='white'%20fill-opacity='0.35'/%3E%3Ccircle%20cx='80.7'%20cy='111.2'%20r='0.7'%20fill='white'%20fill-opacity='0.58'/%3E%3Ccircle%20cx='36.9'%20cy='156.2'%20r='0.8'%20fill='white'%20fill-opacity='0.59'/%3E%3Ccircle%20cx='99.8'%20cy='46.1'%20r='1.2'%20fill='white'%20fill-opacity='0.49'/%3E%3Ccircle%20cx='84.7'%20cy='265.2'%20r='0.6'%20fill='white'%20fill-opacity='0.61'/%3E%3Ccircle%20cx='65.7'%20cy='304.6'%20r='0.7'%20fill='white'%20fill-opacity='0.35'/%3E%3Ccircle%20cx='173.8'%20cy='8.7'%20r='1.0'%20fill='white'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='205.7'%20cy='29.1'%20r='0.7'%20fill='white'%20fill-opacity='0.61'/%3E%3Ccircle%20cx='290.6'%20cy='113.8'%20r='0.6'%20fill='white'%20fill-opacity='0.62'/%3E%3Ccircle%20cx='249.3'%20cy='105.5'%20r='0.6'%20fill='white'%20fill-opacity='0.68'/%3E%3Ccircle%20cx='252.3'%20cy='242.7'%20r='0.6'%20fill='white'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='261.9'%20cy='236.8'%20r='0.6'%20fill='white'%20fill-opacity='0.39'/%3E%3Ccircle%20cx='157.7'%20cy='233.9'%20r='0.5'%20fill='white'%20fill-opacity='0.8'/%3E%3Ccircle%20cx='151.1'%20cy='62.0'%20r='1.0'%20fill='white'%20fill-opacity='0.92'/%3E%3Ccircle%20cx='143.1'%20cy='299.8'%20r='0.7'%20fill='white'%20fill-opacity='0.92'/%3E%3Ccircle%20cx='116.7'%20cy='70.5'%20r='0.6'%20fill='white'%20fill-opacity='0.58'/%3E%3Ccircle%20cx='108.1'%20cy='154.4'%20r='1.0'%20fill='white'%20fill-opacity='0.84'/%3E%3Ccircle%20cx='153.4'%20cy='209.0'%20r='1.2'%20fill='white'%20fill-opacity='0.31'/%3E%3Ccircle%20cx='211.4'%20cy='291.1'%20r='1.2'%20fill='white'%20fill-opacity='0.78'/%3E%3Ccircle%20cx='153.0'%20cy='57.1'%20r='1.2'%20fill='white'%20fill-opacity='0.48'/%3E%3Ccircle%20cx='256.3'%20cy='310.9'%20r='0.8'%20fill='white'%20fill-opacity='0.57'/%3E%3Ccircle%20cx='237.9'%20cy='27.2'%20r='0.6'%20fill='white'%20fill-opacity='0.37'/%3E%3Ccircle%20cx='40.7'%20cy='48.4'%20r='0.8'%20fill='white'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='46.8'%20cy='264.5'%20r='0.8'%20fill='white'%20fill-opacity='0.71'/%3E%3Ccircle%20cx='112.1'%20cy='175.6'%20r='0.6'%20fill='white'%20fill-opacity='0.26'/%3E%3Ccircle%20cx='255.8'%20cy='232.4'%20r='0.5'%20fill='white'%20fill-opacity='0.62'/%3E%3Ccircle%20cx='298.8'%20cy='138.8'%20r='0.6'%20fill='white'%20fill-opacity='0.83'/%3E%3Ccircle%20cx='67.5'%20cy='80.6'%20r='0.7'%20fill='white'%20fill-opacity='0.6'/%3E%3Ccircle%20cx='244.4'%20cy='104.3'%20r='1.0'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='41.9'%20cy='291.2'%20r='0.7'%20fill='white'%20fill-opacity='0.88'/%3E%3Ccircle%20cx='212.0'%20cy='260.8'%20r='1.0'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='293.7'%20cy='160.5'%20r='1.0'%20fill='white'%20fill-opacity='0.36'/%3E%3Ccircle%20cx='163.4'%20cy='279.3'%20r='0.6'%20fill='white'%20fill-opacity='0.68'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='320'%20height='320'%20viewBox='0%200%20320%20320'%3E%3Ccircle%20cx='103.6'%20cy='48.3'%20r='1.2'%20fill='white'%20fill-opacity='0.28'/%3E%3Ccircle%20cx='262.8'%20cy='30.1'%20r='1.0'%20fill='white'%20fill-opacity='0.29'/%3E%3Ccircle%20cx='162.4'%20cy='12.0'%20r='0.8'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='77.0'%20cy='176.3'%20r='0.5'%20fill='white'%20fill-opacity='0.83'/%3E%3Ccircle%20cx='39.6'%20cy='71.4'%20r='1.2'%20fill='white'%20fill-opacity='0.66'/%3E%3Ccircle%20cx='19.8'%20cy='187.4'%20r='0.5'%20fill='white'%20fill-opacity='0.93'/%3E%3Ccircle%20cx='14.9'%20cy='274.7'%20r='0.7'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='173.0'%20cy='182.7'%20r='1.0'%20fill='white'%20fill-opacity='0.82'/%3E%3Ccircle%20cx='57.8'%20cy='186.1'%20r='1.2'%20fill='white'%20fill-opacity='0.38'/%3E%3Ccircle%20cx='31.2'%20cy='227.9'%20r='1.0'%20fill='white'%20fill-opacity='0.29'/%3E%3Ccircle%20cx='65.9'%20cy='217.7'%20r='0.8'%20fill='white'%20fill-opacity='0.79'/%3E%3Ccircle%20cx='149.0'%20cy='295.5'%20r='0.7'%20fill='white'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='254.2'%20cy='223.7'%20r='0.6'%20fill='white'%20fill-opacity='0.31'/%3E%3Ccircle%20cx='96.1'%20cy='158.4'%20r='0.7'%20fill='white'%20fill-opacity='0.76'/%3E%3Ccircle%20cx='92.1'%20cy='313.7'%20r='0.5'%20fill='white'%20fill-opacity='0.61'/%3E%3Ccircle%20cx='52.8'%20cy='109.5'%20r='0.8'%20fill='white'%20fill-opacity='0.55'/%3E%3Ccircle%20cx='307.8'%20cy='24.8'%20r='1.0'%20fill='white'%20fill-opacity='0.65'/%3E%3Ccircle%20cx='280.2'%20cy='100.4'%20r='1.2'%20fill='white'%20fill-opacity='0.5'/%3E%3Ccircle%20cx='158.9'%20cy='255.0'%20r='0.5'%20fill='white'%20fill-opacity='0.84'/%3E%3Ccircle%20cx='302.3'%20cy='151.7'%20r='1.2'%20fill='white'%20fill-opacity='0.3'/%3E%3Ccircle%20cx='234.0'%20cy='99.1'%20r='1.0'%20fill='white'%20fill-opacity='0.95'/%3E%3Ccircle%20cx='263.0'%20cy='91.1'%20r='0.8'%20fill='white'%20fill-opacity='0.87'/%3E%3Ccircle%20cx='111.0'%20cy='301.0'%20r='0.7'%20fill='white'%20fill-opacity='0.37'/%3E%3Ccircle%20cx='37.5'%20cy='18.9'%20r='0.7'%20fill='white'%20fill-opacity='0.34'/%3E%3Ccircle%20cx='79.2'%20cy='125.1'%20r='0.8'%20fill='white'%20fill-opacity='0.31'/%3E%3Ccircle%20cx='143.7'%20cy='175.8'%20r='0.6'%20fill='white'%20fill-opacity='0.82'/%3E%3Ccircle%20cx='276.5'%20cy='89.1'%20r='0.8'%20fill='white'%20fill-opacity='0.94'/%3E%3Ccircle%20cx='218.5'%20cy='121.7'%20r='0.6'%20fill='white'%20fill-opacity='0.36'/%3E%3Ccircle%20cx='56.4'%20cy='74.2'%20r='0.6'%20fill='white'%20fill-opacity='0.26'/%3E%3Ccircle%20cx='265.9'%20cy='58.3'%20r='0.7'%20fill='white'%20fill-opacity='0.25'/%3E%3Ccircle%20cx='134.1'%20cy='118.2'%20r='1.0'%20fill='white'%20fill-opacity='0.47'/%3E%3Ccircle%20cx='40.2'%20cy='274.9'%20r='1.0'%20fill='white'%20fill-opacity='0.71'/%3E%3Ccircle%20cx='236.7'%20cy='146.1'%20r='1.2'%20fill='white'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='125.6'%20cy='127.7'%20r='0.5'%20fill='white'%20fill-opacity='0.59'/%3E%3Ccircle%20cx='128.1'%20cy='61.0'%20r='0.6'%20fill='white'%20fill-opacity='0.56'/%3E%3Ccircle%20cx='35.2'%20cy='192.2'%20r='0.5'%20fill='white'%20fill-opacity='0.25'/%3E%3Ccircle%20cx='48.4'%20cy='32.5'%20r='0.7'%20fill='white'%20fill-opacity='0.68'/%3E%3Ccircle%20cx='22.5'%20cy='66.5'%20r='0.8'%20fill='white'%20fill-opacity='0.35'/%3E%3Ccircle%20cx='80.7'%20cy='111.2'%20r='0.7'%20fill='white'%20fill-opacity='0.58'/%3E%3Ccircle%20cx='36.9'%20cy='156.2'%20r='0.8'%20fill='white'%20fill-opacity='0.59'/%3E%3Ccircle%20cx='99.8'%20cy='46.1'%20r='1.2'%20fill='white'%20fill-opacity='0.49'/%3E%3Ccircle%20cx='84.7'%20cy='265.2'%20r='0.6'%20fill='white'%20fill-opacity='0.61'/%3E%3Ccircle%20cx='65.7'%20cy='304.6'%20r='0.7'%20fill='white'%20fill-opacity='0.35'/%3E%3Ccircle%20cx='173.8'%20cy='8.7'%20r='1.0'%20fill='white'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='205.7'%20cy='29.1'%20r='0.7'%20fill='white'%20fill-opacity='0.61'/%3E%3Ccircle%20cx='290.6'%20cy='113.8'%20r='0.6'%20fill='white'%20fill-opacity='0.62'/%3E%3Ccircle%20cx='249.3'%20cy='105.5'%20r='0.6'%20fill='white'%20fill-opacity='0.68'/%3E%3Ccircle%20cx='252.3'%20cy='242.7'%20r='0.6'%20fill='white'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='261.9'%20cy='236.8'%20r='0.6'%20fill='white'%20fill-opacity='0.39'/%3E%3Ccircle%20cx='157.7'%20cy='233.9'%20r='0.5'%20fill='white'%20fill-opacity='0.8'/%3E%3Ccircle%20cx='151.1'%20cy='62.0'%20r='1.0'%20fill='white'%20fill-opacity='0.92'/%3E%3Ccircle%20cx='143.1'%20cy='299.8'%20r='0.7'%20fill='white'%20fill-opacity='0.92'/%3E%3Ccircle%20cx='116.7'%20cy='70.5'%20r='0.6'%20fill='white'%20fill-opacity='0.58'/%3E%3Ccircle%20cx='108.1'%20cy='154.4'%20r='1.0'%20fill='white'%20fill-opacity='0.84'/%3E%3Ccircle%20cx='153.4'%20cy='209.0'%20r='1.2'%20fill='white'%20fill-opacity='0.31'/%3E%3Ccircle%20cx='211.4'%20cy='291.1'%20r='1.2'%20fill='white'%20fill-opacity='0.78'/%3E%3Ccircle%20cx='153.0'%20cy='57.1'%20r='1.2'%20fill='white'%20fill-opacity='0.48'/%3E%3Ccircle%20cx='256.3'%20cy='310.9'%20r='0.8'%20fill='white'%20fill-opacity='0.57'/%3E%3Ccircle%20cx='237.9'%20cy='27.2'%20r='0.6'%20fill='white'%20fill-opacity='0.37'/%3E%3Ccircle%20cx='40.7'%20cy='48.4'%20r='0.8'%20fill='white'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='46.8'%20cy='264.5'%20r='0.8'%20fill='white'%20fill-opacity='0.71'/%3E%3Ccircle%20cx='112.1'%20cy='175.6'%20r='0.6'%20fill='white'%20fill-opacity='0.26'/%3E%3Ccircle%20cx='255.8'%20cy='232.4'%20r='0.5'%20fill='white'%20fill-opacity='0.62'/%3E%3Ccircle%20cx='298.8'%20cy='138.8'%20r='0.6'%20fill='white'%20fill-opacity='0.83'/%3E%3Ccircle%20cx='67.5'%20cy='80.6'%20r='0.7'%20fill='white'%20fill-opacity='0.6'/%3E%3Ccircle%20cx='244.4'%20cy='104.3'%20r='1.0'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='41.9'%20cy='291.2'%20r='0.7'%20fill='white'%20fill-opacity='0.88'/%3E%3Ccircle%20cx='212.0'%20cy='260.8'%20r='1.0'%20fill='white'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='293.7'%20cy='160.5'%20r='1.0'%20fill='white'%20fill-opacity='0.36'/%3E%3Ccircle%20cx='163.4'%20cy='279.3'%20r='0.6'%20fill='white'%20fill-opacity='0.68'/%3E%3C/svg%3E");
+  background-size: 320px 320px, 547px 547px;
+  background-position: 0 0, 131px 217px;
+  opacity: var(--stars);
+  -webkit-mask-image: radial-gradient(ellipse 110% 100% at 50% 100%, #000 0%, #000 50%, transparent 57%);
+  mask-image: radial-gradient(ellipse 110% 100% at 50% 100%, #000 0%, #000 50%, transparent 57%);
+}
+
+/* ---------- the pinned story ---------- */
+/* Its height is set by js/story.js from js/story-plan.js (one screen + all steps + the fade out);
+   the value here is the same total, for the first paint. */
+.story {
+  position: relative;
+  height: 1863vh;
+  background: #000;
+}
+
+.story__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+@supports (height: 100svh) {
+  .story__sticky { height: 100svh; }   /* stays fully visible while phone toolbars come and go */
+}
+
+/* Satellite, maps and dive: one pre-rendered video, moved frame by frame with the scroll. */
+.story__video,
+.story__twin,
+.story__poster,
+.story__poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.story__video {
+  object-fit: cover;
+  background: #000;
+  pointer-events: none;
+}
+
+/* Rotterdam as a digital twin: a small live 3D scene, cross-faded in over the end of the video. */
+.story__twin {
+  opacity: 0;
+  pointer-events: none;   /* driven by scroll only, so the mouse wheel must reach the page */
+}
+
+.story__twin canvas {
+  display: block;
+}
+
+/* Data credits required by the data licences: the only text in the animation, small, bottom right. */
+.story__credit {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  z-index: 1;
+  max-width: min(72%, 760px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: right;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+  transition: opacity 0.4s ease;
+}
+
+.story__credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.story__credit:empty {
+  opacity: 0;
+}
+
+/* Black veil: the scene emerges from black as the story arrives, and returns to black at the end. */
+.story__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;   /* above the credit line, so it fades with the scene */
+  background: #000;
+  pointer-events: none;
+}
+
+/* Still image for visitors who switch animation off (see the reduced-motion rules below). */
+.story__poster {
+  display: none;
+}
+
+.story__poster img {
+  object-fit: cover;
+}
+
+/* After the story, space gives way to the white page along the same curved, glowing edge. */
+.story-tail {
+  height: 48vh;
+  background: radial-gradient(ellipse 110% 100% at 50% 0%,
+    #000 0%,
+    #000 55%,
+    #02060d 58.5%,
+    #0a1f38 61%,
+    rgba(52, 118, 196, 0.62) 63.5%,
+    rgba(120, 175, 232, 0.34) 66.5%,
+    rgba(190, 220, 248, 0.14) 70.5%,
+    rgba(255, 255, 255, 0) 76%);
+}
+
+/* Visitors who ask for less motion get the line drawn and one still image of the twin:
+   no pinned scrolling, no video, no 3D scene. */
+@media (prefers-reduced-motion: reduce) {
+  .story-lead__line path { stroke-dashoffset: 0; }
+  .story-lead__dot { opacity: 1; }
+  .story-lead__stars { opacity: 1; }
+  .story { height: auto; }
+  .story__sticky { position: relative; height: 80vh; min-height: 420px; }
+  .story__video,
+  .story__twin,
+  .story__veil { display: none; }
+  .story__poster { display: block; }
+}

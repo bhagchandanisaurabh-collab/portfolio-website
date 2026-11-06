@@ -23,6 +23,9 @@
     <link rel="preload" href="assets/fonts/caveat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/story.css">
+    <script src="js/story-plan.js" defer></script>
+    <script src="js/story.js" defer></script>
     <script src="js/site-components.js" defer></script>
   </head>
   <body>
@@ -71,6 +74,34 @@
           >
         </div>
       </section>
+
+      <!-- Scroll story: a route line leads into space; a satellite flies down to the Netherlands, three maps
+           scan in, and a few Rotterdam buildings turn into a digital twin (css/story.css, js/story.js). -->
+      <section class="story-lead" data-story-lead aria-hidden="true">
+        <div class="story-lead__space" data-story-space>
+          <div class="story-lead__dome"></div>
+          <div class="story-lead__stars"></div>
+        </div>
+        <svg class="story-lead__line" viewBox="0 0 1000 1000" preserveAspectRatio="none" focusable="false">
+          <path pathLength="1" d="M720 0 C720 260 260 300 260 560 C260 800 500 790 500 1000"/>
+        </svg>
+        <span class="story-lead__dot"></span>
+      </section>
+
+      <section class="story" data-story aria-label="Animation: a Landsat 8 satellite flies down to the Netherlands, maps of elevation, surface temperature and land cover scan in, and buildings on Rotterdam's Wilhelminapier turn into a digital twin">
+        <div class="story__sticky">
+          <video class="story__video" data-story-video muted playsinline preload="none" disablepictureinpicture aria-hidden="true"></video>
+          <div class="story__twin" data-story-twin></div>
+          <picture class="story__poster">
+            <source media="(orientation: portrait)" srcset="assets/story/story-poster-tall.webp" width="900" height="1600">
+            <img data-no-skeleton src="assets/story/story-poster-wide.webp" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="Buildings on Rotterdam's Wilhelminapier as a glowing blue digital twin on a dark grid">
+          </picture>
+          <p class="story__credit" data-story-credit>© <a href="https://docs.3dbag.nl/en/copyright/" target="_blank" rel="noopener">3DBAG by tudelft3d and 3DGI</a> (colours changed) · Aerial photo: Beeldmateriaal Nederland, PDOK</p>
+          <div class="story__veil" data-story-veil></div>
+        </div>
+      </section>
+      <div class="story-tail" aria-hidden="true"></div>
 
       <section class="what-i-do section-band" aria-labelledby="what-i-do-title">
         <div class="container what-i-do-inner">
