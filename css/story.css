@@ -121,8 +121,8 @@
   .story__sticky { height: 100svh; }   /* stays fully visible while phone toolbars come and go */
 }
 
-/* Satellite, maps and dive: one pre-rendered video, moved frame by frame with the scroll. */
-.story__video,
+/* Satellite, maps and dive: a pre-rendered image sequence on a canvas, moved frame by frame with the scroll. */
+.story__frames,
 .story__twin,
 .story__poster,
 .story__poster img {
@@ -132,13 +132,13 @@
   height: 100%;
 }
 
-.story__video {
-  object-fit: cover;
+.story__frames {
+  display: block;
   background: #000;
   pointer-events: none;
 }
 
-/* Rotterdam as a digital twin: a small live 3D scene, cross-faded in over the end of the video. */
+/* Rotterdam as a digital twin: a small live 3D scene, cross-faded in over the end of the sequence. */
 .story__twin {
   opacity: 0;
   pointer-events: none;   /* driven by scroll only, so the mouse wheel must reach the page */
@@ -213,7 +213,7 @@
   .story-lead__stars { opacity: 1; }
   .story { height: auto; }
   .story__sticky { position: relative; height: 80vh; min-height: 420px; }
-  .story__video,
+  .story__frames,
   .story__twin,
   .story__veil { display: none; }
   .story__poster { display: block; }
